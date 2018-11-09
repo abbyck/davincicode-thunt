@@ -223,9 +223,10 @@ app.get('/checksuccess', (req, res) => {
         }
         console.log(docs[0]);
         if (
-            docs[0].timepuzzle.hour ||
-            docs[0].timepuzzle.min ||
-            docs[0].timepuzzle.sec
+            docs[0] &&
+            (docs[0].timepuzzle.hour ||
+                docs[0].timepuzzle.min ||
+                docs[0].timepuzzle.sec)
         ) {
             res.render('terminate');
         } else {
