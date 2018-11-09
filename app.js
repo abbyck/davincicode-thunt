@@ -89,7 +89,6 @@ app.get('/desert', isLoggedIn, (req, res) => {
         if (err) {
             console.log(err);
         }
-        console.log(data);
     });
 
     res.render('desertScenary');
@@ -216,10 +215,29 @@ app.get('/', (req, res) => {
     res.render('signin');
 });
 
+// Check Success
+app.get('/checksuccess', (req, res) => {
+    Time.find({ user: req.user.username }, (err, docs) => {
+        if (err) {
+            console.log(err);
+        }
+        console.log(docs[0]);
+        if (
+            docs[0].timepuzzle.hour ||
+            docs[0].timepuzzle.min ||
+            docs[0].timepuzzle.sec
+        ) {
+            res.render('terminate');
+        } else {
+            res.redirect('/desert');
+        }
+    });
+});
+
 app.post(
     '/',
     passport.authenticate('local', {
-        successRedirect: '/desert',
+        successRedirect: '/checksuccess',
         failureRedirect: '/',
     }),
     (req, res) => {}
