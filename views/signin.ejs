@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Sign In Treasure Hunt</title>
+        <link rel="stylesheet" href="/signup/css/style.css" />
+    </head>
+    <body>
+        <div id="particles-js">
+            <div class="main">
+                <section class="signup">
+                    <div class="container">
+                        <div class="signup-content">
+                            <form
+                                action="/"
+                                method="POST"
+                                id="signup-form"
+                                class="signup-form"
+                            >
+                                <h2 class="form-title">Sign In</h2>
+                                <div class="form-group">
+                                    <input
+                                        type="text"
+                                        class="form-input"
+                                        name="username"
+                                        id="team_id"
+                                        placeholder="Team ID"
+                                        required
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <input
+                                        type="password"
+                                        class="form-input"
+                                        name="password"
+                                        id="password"
+                                        placeholder="Password"
+                                        required
+                                    />
+                                    <span
+                                        toggle="#password"
+                                        class="zmdi zmdi-eye-off field-icon toggle-password"
+                                    ></span>
+                                </div>
+
+                                <!--
+                                    <div class="form-group">
+                                                                <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
+                                                            </div>
+                                                            <div class="for
+                                    m-group">
+                                                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                                                            </div>
+                                -->
+                                <div class="form-group">
+                                    <input
+                                        type="submit"
+                                        name="submit"
+                                        id="submit"
+                                        class="form-submit"
+                                        value="Sign In"
+                                        onclick="signin();"
+                                    />
+                                </div>
+                            </form>
+                            <p class="loginhere"></p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <script type="text/javascript" src="/signup/js/particles.js"></script>
+        <script type="text/javascript" src="/signup/js/app.js"></script>
+    </body>
+</html>

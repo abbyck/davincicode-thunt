@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "baseFont";
+    src: url("fonts/inconsolata.ttf");
+}
+
+@font-face {
+    font-family: "ancient";
+    src: url("fonts/ancient.ttf");
+}

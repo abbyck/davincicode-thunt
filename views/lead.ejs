@@ -1,0 +1,106 @@
+<html>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Activity Status</title>
+    <style>
+      h1{
+    font-size: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  table{
+    width:100%;
+    table-layout: fixed;
+  }
+  .tbl-header{
+    background-color: rgba(255,255,255,0.3);
+   }
+  .tbl-content{
+    height:auto;
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  th{
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  td{
+    padding: 15px;
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+  }
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+  body{
+    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+    background: linear-gradient(to right, #25c481, #25b7c4);
+    font-family: 'Roboto', sans-serif;
+  }
+  section{
+    margin: 50px;
+  }
+
+  ::-webkit-scrollbar {
+      width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  }
+  ::-webkit-scrollbar-thumb {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  }
+
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Activity Status</h1>
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th>team id</th>
+                <th>time for 1st level</th>
+                <th>time for 2nd level</th>
+                <th>time for 3rd level</th>
+                <th>time for 4th level</th>
+                <th>status</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+            <% for(var i=0; i<user.length; i++) {%>
+              <tr>
+                <td><%= user[i].user %></td>
+                <td><% if (user[i].timedesert.hour || user[i].timedesert.min || user[i].timedesert.sec) { %> <%= `${Math.abs(user[i].timedesert.hour-user[i].timestart.hour)} H ${Math.abs(user[i].timedesert.min-user[i].timestart.min)} M ${Math.abs(user[i].timedesert.sec-user[i].timestart.sec)} S` %>  <% } else{ %> 0 H 0 M 0 S <% } %> </td>
+                <td><% if (user[i].timepyramid.hour || user[i].timepyramid.min || user[i].timepyramid.sec) { %><%= `${Math.abs(user[i].timepyramid.hour-user[i].timedesert.hour)} H ${Math.abs(user[i].timepyramid.min-user[i].timedesert.min)} M ${Math.abs(user[i].timepyramid.sec-user[i].timedesert.sec)} S` %> <% } else{ %> 0 H 0 M 0 S <% } %></td>
+                <td><% if (user[i].timemessyroom.hour || user[i].timemessyroom.min || user[i].timemessyroom.sec) { %><%= `${Math.abs(user[i].timemessyroom.hour-user[i].timepyramid.hour)} H ${Math.abs(user[i].timemessyroom.min-user[i].timepyramid.min)} M ${Math.abs(user[i].timemessyroom.sec-user[i].timepyramid.sec)} S` %> <% } else{ %> 0 H 0 M 0 S <% } %> </td>
+                <td><% if (user[i].timepuzzle.hour || user[i].timepuzzle.min || user[i].timepuzzle.sec) { %><%= `${Math.abs(user[i].timepuzzle.hour-user[i].timemessyroom.hour)} H ${Math.abs(user[i].timepuzzle.min-user[i].timemessyroom.min)} M ${Math.abs(user[i].timepuzzle.sec-user[i].timemessyroom.sec)} S` %> <% } else{ %> 0 H 0 M 0 S <% } %> </td>
+                <td><% if (user[i].timepuzzle.hour || user[i].timepuzzle.min || user[i].timepuzzle.sec) { %> <b>Completed</b><% } else{ %> On Progress <% } %></td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    <script type="text/javascript" src="leader.js"></script>
+    </body>
+</html>

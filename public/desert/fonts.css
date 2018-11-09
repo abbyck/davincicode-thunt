@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "eventName";
+    src: url("fonts/ginga.ttf");
+}
+
+@font-face {
+    font-family: "text";
+    src: url("fonts/chicago.ttf");
+}
+
+@font-face {
+    font-family: "baseFont";
+    src: url("fonts/inconsolata.ttf");
+}
+
+@font-face {
+    font-family: "ancient";
+    src: url("fonts/ancient.ttf");
+}
